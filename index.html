@@ -50,7 +50,7 @@ main {
 table th, table td {
     padding: 10px;
     text-align: center;
-    font-size: 2.7rem; /* Adjusted font size */
+    font-size: 4rem; /* Adjusted font size */
     font-weight: bold;
 }
 
@@ -95,12 +95,21 @@ table td:nth-child(3) {
 }
 
 #current-time {
-    font-size: 9rem; /* Increased size for clock */
+    font-size: 8rem; /* Increased size for clock */
     margin: 20px 0;
     font-weight: bold;
     color: #ffcc00; /* Bright color for clock text */
     text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.8); /* Glow effect */
+    word-wrap: break-word;
 }
+#sunrise-time {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffcc00; /* Bright yellow color */
+    text-align: center;
+    margin-top: 20px;
+}
+
 
 #next-prayer {
     width: auto; /* Allow the width to adapt naturally */
@@ -159,6 +168,7 @@ table td:nth-child(3) {
         </table>
     </div>
     <div id="right-container">
+        <div id="sunrise-time"></div>
         <div id="current-time"></div> <!-- Digital clock moved here -->
         <div id="next-prayer"></div> <!-- Next Adhan section -->
     </div>
@@ -178,6 +188,8 @@ table td:nth-child(3) {
             const response = await fetch(apiURL);
             const data = await response.json();
             const timings = data.data.timings;
+           const sunriseTime = timings.Sunrise; // Get the Sunrise time
+        document.getElementById("sunrise-time").textContent = `Sunrise: ${sunriseTime}`;
 
             populatePrayerTable(timings);
             determineNextPrayer(timings);
@@ -190,7 +202,7 @@ table td:nth-child(3) {
     function populatePrayerTable(timings) {
         const prayers = [
             { name: "Fajr", iqama: "07:00", class: "fajr-row" },
-            { name: "Sunrise", iqama: "-", class: "sunrise-row" },
+          //  { name: "Sunrise", iqama: " ", class: "sunrise-row" },
             { name: "Dhuhr", iqama: "12:50", class: "dhuhr-row" },
             { name: "Asr", iqama: "14:25", class: "asr-row" },
             { name: "Maghrib", iqamaOffset: 12, class: "maghrib-row" },
