@@ -103,11 +103,18 @@ table td:nth-child(3) {
     word-wrap: break-word;
 }
 #sunrise-time {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: bold;
     color: #ffcc00; /* Bright yellow color */
     text-align: center;
     margin-top: 20px;
+}
+#date-display {
+    font-size: 2.5rem; /* Adjust the font size */
+    font-weight: bold;
+    color: #ffffff; /* White color for better contrast */
+    text-align: center;
+    margin-bottom: 20px; /* Space below the date */
 }
 
 
@@ -168,6 +175,7 @@ table td:nth-child(3) {
         </table>
     </div>
     <div id="right-container">
+        <div id="date-display"></div>
         <div id="sunrise-time"></div>
         <div id="current-time"></div> <!-- Digital clock moved here -->
         <div id="next-prayer"></div> <!-- Next Adhan section -->
@@ -204,7 +212,7 @@ table td:nth-child(3) {
             { name: "Fajr", iqama: "07:00", class: "fajr-row" },
           //  { name: "Sunrise", iqama: " ", class: "sunrise-row" },
             { name: "Dhuhr", iqama: "12:50", class: "dhuhr-row" },
-            { name: "Asr", iqama: "14:25", class: "asr-row" },
+            { name: "Asr", iqama: "14:30", class: "asr-row" },
             { name: "Maghrib", iqamaOffset: 12, class: "maghrib-row" },
             { name: "Isha", iqama: "19:00", class: "isha-row" }
         ];
@@ -340,6 +348,16 @@ table td:nth-child(3) {
     setInterval(updateClock, 1000);
     setInterval(updateNextPrayerCountdown, 1000);
     fetchPrayerTimes();
+    function updateDate() {
+    const now = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedDate = now.toLocaleDateString(undefined, options); // Automatically adapts to locale
+    document.getElementById("date-display").textContent = formattedDate;
+}
+
+// Call the function to set the initial date
+updateDate();
+
 </script>
 
 </body>
