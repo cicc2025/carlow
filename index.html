@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prayer Times</title>
     <style>
- body {
+body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #4CAF50;
@@ -59,17 +59,28 @@ table th {
     color: black;
 }
 
-table td:nth-child(3) {
-    font-weight: bold;
-    color: #007bff;
+/* Restoring original row colors */
+.fajr-row {
+    background-color: #c8e6c9; /* Light green */
 }
 
-.fajr-row { background-color: #c8e6c9; }
-.sunrise-row { background-color: #fff9c4; }
-.dhuhr-row, .asr-row { background-color: #ffe0b2; }
-.maghrib-row { background-color: #f8bbd0; }
-.isha-row { background-color: #bbdefb; }
+.sunrise-row {
+    background-color: #fff9c4; /* Light yellow */
+}
 
+.dhuhr-row, .asr-row {
+    background-color: #ffe0b2; /* Light orange */
+}
+
+.maghrib-row {
+    background-color: #f8bbd0; /* Light pink */
+}
+
+.isha-row {
+    background-color: #bbdefb; /* Light blue */
+}
+
+/* Highlight styles */
 .highlight {
     animation: blink 1s infinite;
     font-weight: bold;
@@ -102,6 +113,7 @@ table td:nth-child(3) {
     text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.8); /* Glow effect */
     word-wrap: break-word;
 }
+
 #sunrise-time {
     font-size: 2.5rem;
     font-weight: bold;
@@ -109,6 +121,7 @@ table td:nth-child(3) {
     text-align: center;
     margin-top: 20px;
 }
+
 #date-display {
     font-size: 1.8rem; /* Adjust the font size */
     font-weight: bold;
@@ -116,7 +129,6 @@ table td:nth-child(3) {
     text-align: center;
     margin-bottom: 20px; /* Space below the date */
 }
-
 
 #next-prayer {
     width: auto; /* Allow the width to adapt naturally */
@@ -128,6 +140,7 @@ table td:nth-child(3) {
     margin-top: 10px;
     word-wrap: break-word; /* Prevent text overflow */
 }
+
 #next-iqama {
     font-size: 30px;  /* Make the text larger */
     font-weight: bold;  /* Make the text bold */
@@ -154,7 +167,6 @@ table td:nth-child(3) {
     }
 }
 
-
 /* Mobile responsiveness */
 @media only screen and (max-width: 768px) {
     main {
@@ -163,25 +175,30 @@ table td:nth-child(3) {
 
     .table-container, #right-container {
         width: 100%; /* Take full width on mobile */
-        height: 50%; /* Each takes half height */
+        height: auto; /* Allow height to adapt naturally */
     }
 
     table th, table td {
-        font-size: 3rem;
-        padding: 8px;
+        font-size: 3rem; /* Adjust font size for smaller screens */
+        padding: 8px; /* Adjust padding */
     }
 
     #current-time {
         font-size: 4rem; /* Reduce clock font size on mobile */
     }
 
-    #next-prayer {
-        font-size: 2rem;
-        margin-top: 20px;
+    #next-prayer, #next-iqama {
+        font-size: 2rem; /* Adjust font size for smaller screens */
+        margin-top: 10px; /* Add spacing for clarity */
     }
-    
 
+    #sunrise-time, #date-display {
+        font-size: 1.5rem; /* Adjust size for sunrise and date display */
+        margin-top: 10px; /* Add spacing */
+    }
 }
+
+
     </style>
     
 </head>
