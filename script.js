@@ -269,7 +269,7 @@ let prog = ((newDate.getTime() - (prevDate.getTime())) / (currentDate.getTime() 
 // console.log("prev date  "+prevDate.getTime())
 // console.log("curr date  "+currentDate.getTime())
 // console.log("=====================")
-document.querySelector(".iqama-circle-prog").style.cssText = ` background-image: conic-gradient(white, white ${prog < 0 ? -prog : prog}deg, #00000029 0deg, #00000029 180deg, transparent 180deg );`
+document.querySelector(".iqama-circle-prog").style.cssText = ` background-image: conic-gradient(white, white ${prog <= 0 ? -prog : prog}deg, #00000029 0deg, #00000029 180deg, transparent 180deg );`
 /////////////////////////////
 
 // let d = new Date()
