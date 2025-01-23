@@ -1,0 +1,409 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+::-webkit-scrollbar {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.475);
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.672);
+}
+::-webkit-scrollbar-thumb:active {
+  background-color: rgb(255, 255, 255);
+}
+
+body {
+  margin: 0;
+  background-color: var(--main-color);
+  overflow-x: hidden;
+  opacity: 0;
+}
+
+:root {
+  --main-color: #ff8100;
+}
+
+/* Small screens */
+@media (max-width: 775px) {
+  .container {
+    width: 100%;
+  }
+
+  .background-image img {
+    width: 452px !important;
+  }
+}
+
+/* Medium screens */
+@media (min-width: 776px) {
+  .container {
+    width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Large screens */
+@media (min-width: 992px) {
+  .container {
+    width: 900px;
+    margin: 0 auto;
+  }
+}
+
+/* Extra-large screens */
+@media (min-width: 1200px) {
+  .container {
+    width: 1000px;
+    margin: 0 auto;
+  }
+}
+
+.background-image img {
+  width: 715px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.05;
+}
+
+.background-image {
+  overflow: hidden;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+}
+
+.top-clock-container {
+  padding: 12px;
+  padding-top: 0;
+  position: relative;
+  z-index: 1;
+}
+.top-clock-container .top-clock {
+  display: flex;
+  justify-content: space-between;
+  width: 886px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 15px;
+  border-bottom-left-radius: 43px;
+  border-bottom-right-radius: 43px;
+  gap: 26px;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 1000px) {
+  .top-clock-container .top-clock {
+    width: fit-content !important;
+    flex-direction: column;
+    gap: 9px !important;
+    align-items: center;
+  }
+  .top-clock-container .top-clock .time {
+    font-size: 50px !important;
+    min-width: fit-content !important;
+    max-width: fit-content !important;
+  }
+  .a-prayer-section {
+    font-size: 30px !important;
+  }
+  .progresses {
+    gap: 15px !important;
+    margin-top: 20px !important;
+  }
+  .amount-circle-prog,
+  .next-prayer-iqama-progress .iqama-circle-prog {
+    width: 260px !important;
+    height: 260px !important;
+  }
+  .amount-circle-prog::before,
+  .iqama-circle-prog::before {
+    width: 200px !important;
+    height: 200px !important;
+  }
+  .current {
+    font-size: 25px !important;
+    margin-top: 38px !important;
+  }
+  .start,
+  .end {
+    top: 136px !important;
+  }
+  .prayers {
+    gap: 13px !important;
+  }
+}
+
+.top-clock-container .top-clock .time {
+  font-size: 90px;
+  font-weight: bold;
+  color: var(--main-color);
+  min-width: 515px;
+  max-width: 515px;
+}
+.top-clock-container .top-clock .date-container {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--main-color);
+  font-size: 30px;
+  font-weight: bold;
+}
+.top-clock-container .top-clock .date-container .date {
+  text-align: center;
+}
+/* .top-clock-container .top-clock .date-container .date .miladi {
+}
+.top-clock-container .top-clock .date-container .date .hijri {
+
+} */
+
+.main-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.prayers-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  gap: 121px;
+  align-items: center;
+  height: 100vh;
+}
+
+/* @media (max-width: 1250px) {
+  .prayers-container {
+    height: fit-content;
+    margin-top: 77px;
+  }
+} */
+
+@media (max-width: 2000px) {
+  .prayers-container {
+    flex-direction: column !important;
+  }
+  .prayers-container {
+    height: fit-content;
+    margin-top: 77px;
+  }
+}
+
+@media (min-width: 1001px) and (max-width: 2000px) {
+  .progresses {
+    gap: 121px !important ;
+    margin-top: -10px !important;
+    flex-direction: row !important;
+  }
+}
+
+@media (max-width: 985px) {
+}
+
+.prayers {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff8a;
+  text-align: center;
+  gap: 110px;
+}
+
+.a-prayer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 63px;
+}
+.prayers-section-icons {
+  width: 60px;
+  margin: 0 auto;
+}
+.prayer-iqama,
+.prayer-azan,
+.prayer-name {
+  transition: color 1s;
+}
+.active {
+  color: white !important;
+  text-shadow: 0 0 10px white;
+}
+/* start drawing phone */
+
+.close-sound-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 110vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  transition: 0.4s;
+}
+
+.phone {
+  width: 300px;
+  height: 500px;
+  border: 10px solid white;
+  border-radius: 10px;
+  box-shadow: -11px 14px 0px #0000001f;
+  position: relative;
+  transform: translateX(-49%);
+  opacity: 0;
+  transition: 1s;
+}
+
+.phone-trans {
+  transform: translateX(0px) !important;
+  opacity: 1 !important;
+}
+
+.top-bar {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translate(-50%, -500%);
+  width: 120px;
+  background-color: white;
+  height: 16px;
+  border-radius: 30px;
+  opacity: 0;
+  transition: 1s;
+}
+
+.top-bar-trans {
+  transform: translate(-50%) !important;
+  opacity: 1 !important;
+}
+
+.noti-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(150%, -50%);
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 7px solid white;
+  box-shadow: 0 0 10px 0 white;
+  opacity: 0;
+  transition: 1s;
+}
+
+.noti-icon-trans {
+  transform: translate(-50%, -50%) !important;
+  opacity: 1 !important;
+}
+
+.noti-icon i {
+  color: white;
+  font-size: 93px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-shadow: 0 0 10px white;
+}
+
+.slide-x {
+  width: 273px;
+  height: 12px;
+  background-color: white;
+  border-radius: 5px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(16px, -107px) rotate(-34deg);
+  border-bottom: 13px solid #ff8100;
+  opacity: 0;
+  transition: 0.6s;
+}
+
+.slide-x-trans {
+  transform: translate(-50%, -50%) rotate(-34deg) !important;
+  opacity: 1 !important;
+}
+
+/* end drawing phone */
+/* start progresses */
+.collections-progress {
+  position: relative;
+}
+.amount-circle-prog,
+.next-prayer-iqama-progress .iqama-circle-prog {
+  width: 330px;
+  height: 330px;
+  border-radius: 50%;
+  transform: rotate(-90deg);
+  position: relative;
+}
+
+.amount-circle-prog::before,
+.iqama-circle-prog::before {
+  content: "";
+  width: 257px;
+  height: 257px;
+  position: absolute;
+  background-color: var(--main-color);
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.start,
+.current,
+.end {
+  position: absolute;
+  color: white;
+}
+.start,
+.end {
+  top: 174px;
+}
+
+.start {
+  left: 0;
+}
+
+.current {
+  top: 58px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 35px;
+  text-shadow: 0 0 10px white;
+  width: 100%;
+  text-align: center;
+  margin-top: 67px;
+}
+.end {
+  right: 0;
+}
+.progresses {
+  display: flex;
+  gap: 20px;
+  color: white;
+  flex-direction: column;
+  margin-top: 190px;
+}
+.next-prayer-iqama-progress {
+  position: relative;
+}
+.prog-title {
+  position: absolute;
+  font-size: 37px;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -120%);
+}
+/* end progresses */
